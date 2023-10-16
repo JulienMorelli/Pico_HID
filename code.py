@@ -4,53 +4,38 @@ from adafruit_hid import keyboard
 import board
 import digitalio
 
-btnESC = digitalio.DigitalInOut(board.GP14)
-btnESC.direction = digitalio.Direction.INPUT
-btnESC.pull = digitalio.Pull.UP
+btn_H = digitalio.DigitalInOut(board.GP10)
+btn_H.direction = digitalio.Direction.INPUT
+btn_H.pull = digitalio.Pull.UP
 
-btnSPACE = digitalio.DigitalInOut(board.GP15)
-btnSPACE.direction = digitalio.Direction.INPUT
-btnSPACE.pull = digitalio.Pull.UP
+btn_G = digitalio.DigitalInOut(board.GP11)
+btn_G.direction = digitalio.Direction.INPUT
+btn_G.pull = digitalio.Pull.UP
 
-btnup = digitalio.DigitalInOut(board.GP13)
-btnup.direction = digitalio.Direction.INPUT
-btnup.pull = digitalio.Pull.UP
+btn_T = digitalio.DigitalInOut(board.GP12)
+btn_T.direction = digitalio.Direction.INPUT
+btn_T.pull = digitalio.Pull.UP
 
-btndown = digitalio.DigitalInOut(board.GP11)
-btndown.direction = digitalio.Direction.INPUT
-btndown.pull = digitalio.Pull.UP
-
-btnleft = digitalio.DigitalInOut(board.GP12)
-btnleft.direction = digitalio.Direction.INPUT
-btnleft.pull = digitalio.Pull.UP
-
-btnright = digitalio.DigitalInOut(board.GP10)
-btnright.direction = digitalio.Direction.INPUT
-btnright.pull = digitalio.Pull.UP
+btn_Y = digitalio.DigitalInOut(board.GP13)
+btn_Y.direction = digitalio.Direction.INPUT
+btn_Y.pull = digitalio.Pull.UP
 
 kbd = keyboard.Keyboard(usb_hid.devices)
 
 while True:
-    if not(btnESC.value):
-        print("ESC")
-        kbd.send(keyboard.Keycode.ESCAPE)
-        
-    if not(btnSPACE.value):
-        print("SPACE")
-        kbd.send(keyboard.Keycode.SPACEBAR)
-        
-    if not(btnup.value):
-        print("W")
-        kbd.send(keyboard.Keycode.W)
-        
-    if not(btndown.value):
-        print("S")
-        kbd.send(keyboard.Keycode.S)
-        
-    if not(btnright.value):
-        print("A")
-        kbd.send(keyboard.Keycode.A)
-        
-    if not(btnleft.value):
-        print("D")
-        kbd.send(keyboard.Keycode.D)
+    if not(btn_H.value):
+        print("H")
+        kbd.send(keyboard.Keycode.H)
+        time.sleep(0.1)
+
+    if not(btn_G.value):
+        print("G")
+        kbd.send(keyboard.Keycode.G)
+       
+    if not(btn_T.value):
+        print("T")
+        kbd.send(keyboard.Keycode.T)
+
+    if not(btn_Y.value):
+        print("Y")
+        kbd.send(keyboard.Keycode.Y)
